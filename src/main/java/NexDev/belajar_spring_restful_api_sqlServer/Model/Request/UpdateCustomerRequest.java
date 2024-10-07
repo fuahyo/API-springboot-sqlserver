@@ -1,5 +1,7 @@
 package NexDev.belajar_spring_restful_api_sqlServer.Model.Request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -13,7 +15,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerRequest {
+public class UpdateCustomerRequest {
+
+    @JsonIgnore
+    @NotBlank
+    private String id;
 
     @NotBlank
     @Size(max = 100, min = 3)

@@ -1,10 +1,12 @@
 package NexDev.belajar_spring_restful_api_sqlServer.Entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,4 +37,7 @@ public class User {
 
     @Column(name = "token_expired_at")
     private Timestamp tokenExpiredAt;
+
+    @OneToMany(mappedBy = "user")
+    private List<Customer> customer;
 }
